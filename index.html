@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Near-Sonic Data Beam</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===================== SCREEN 1: PERMISSION WALL ===================== -->
+  <div id="permissionWall" class="permission-wall">
+    <div class="permission-card">
+      <div class="permission-icon">🔒</div>
+      <h1 class="permission-title">Microphone Access Required</h1>
+      <p class="permission-text" id="permissionText">
+        This web app uses safe, near-sonic high-frequency sound waves to send and receive text data.
+        We need microphone permission to listen for incoming data beams. Your audio is processed
+        locally in real-time and is never saved or recorded.
+      </p>
+      <button id="enableMicBtn" class="btn btn-primary btn-large">
+        🟢 Enable Microphone &amp; Enter App
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN 2: MAIN APP ===================== -->
+  <div id="mainApp" class="main-app hidden">
+
+    <!-- HEADER -->
+    <header class="app-header">
+      <h1 class="app-title">🛸 Near-Sonic Data Beam</h1>
+      <div class="status-badges">
+        <div class="badge" id="micStatusBadge">
+          <span class="badge-dot badge-dot-red" id="micStatusDot"></span>
+          <span id="micStatusText">Mic Status: Inactive</span>
+        </div>
+        <div class="badge" id="audioEngineBadge">
+          <span class="badge-dot badge-dot-red" id="audioEngineDot"></span>
+          <span id="audioEngineText">Audio Engine: Suspended</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- TRANSMITTER -->
+    <section class="card">
+      <h2 class="section-heading">📤 Send Data Beam</h2>
+      <textarea
+        id="messageInput"
+        class="text-input"
+        placeholder="Type your secret message here... (Max 50 characters)"
+        maxlength="50"
+        rows="3"
+      ></textarea>
+      <div class="char-counter"><span id="charCount">0</span> / 50</div>
+      <button id="transmitBtn" class="btn btn-primary btn-large" disabled>
+        <span id="transmitBtnLabel">⚡ Transmit Message via Sound</span>
+      </button>
+    </section>
+
+    <!-- RECEIVER -->
+    <section class="card">
+      <h2 class="section-heading">📥 Listening for Beams</h2>
+      <canvas id="waveformCanvas" class="waveform-canvas" width="600" height="80"></canvas>
+
+      <div class="log-header-row">
+        <h3 class="log-title">Received Messages Log</h3>
+        <button id="clearLogBtn" class="btn btn-secondary btn-small">🧹 Clear Log</button>
+      </div>
+      <div id="messageLog" class="message-log">
+        <p class="log-empty" id="logEmptyState">No data beams detected yet... Keep the sender phone close.</p>
+      </div>
+    </section>
+
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
